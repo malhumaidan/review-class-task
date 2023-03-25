@@ -8,7 +8,7 @@ https://react-pets-backend.herokuapp.com/
 
 to get all pets
 
-#### /pets/1 [POST]
+#### /pets/1 [PUT]
 
 to update a pet
 
