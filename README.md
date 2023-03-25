@@ -19,3 +19,6 @@ to add a new pet you will need to send two things:
 2- image
 
 # review-class-task
+
+your app should look something like this
+https://pets-react-app.netlify.app/
