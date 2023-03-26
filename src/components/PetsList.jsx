@@ -3,13 +3,20 @@ import React, { useState } from "react";
 import SearchBar from "./SearchBar";
 import Pet from "./Pet";
 import petsData from "../data/petsData";
+import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
 
 function PetsList() {
   const [query, setQuery] = useState("");
 
-  const pets = petsData
+  const response = useQuery(["pets"], () =>
+    axios.get("https://react-pets-backend.herokuapp.com/pets")
+  );
+  console.log(response.data?.data);
+
+  const pets = response.data?.data
     .filter((pet) => pet.name.toLowerCase().includes(query.toLowerCase()))
-    .map((pet) => <Pet pet={pet} />);
+    .map((pet) => <Pet pet={pet} key={pet.id} />);
   return (
     <section className="page-section portfolio" id="portfolio">
       <div className="container">

@@ -1,5 +1,6 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import axios from "axios";
 
 const CreatePet = () => {
   const initialValues = {
@@ -9,7 +10,11 @@ const CreatePet = () => {
 
   const onSubmit = (values, { resetForm }) => {
     // Handle submit logic here, such as sending the form data to an API
-    console.log(values);
+    axios.post("https://react-pets-backend.herokuapp.com/pets", {
+      name: values.name,
+      image: values.imageUrl,
+    });
+    console.log(values.name);
     resetForm(initialValues);
   };
 
